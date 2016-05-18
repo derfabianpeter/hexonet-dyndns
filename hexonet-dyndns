@@ -3,8 +3,6 @@ import ispapi # https://wiki.hexonet.net/wiki/SDKs#PYTHON_Library
 import os
 import sys, getopt
 import urllib2
-import urlparse
-import re
 
 # HEXONET Config
 HEXONET = {
