@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import ispapi # https://wiki.hexonet.net/wiki/SDKs#PYTHON_Library
 import os
-import sys, getopt
+import sys
 import urllib2
 
 # HEXONET Config
