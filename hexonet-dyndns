@@ -6,9 +6,9 @@ import urllib2
 
 # HEXONET Config
 HEXONET = {
-    "user": "<redacted>",
-    "password": "<redacted>",
-    "entity": "54cd", 
+    "user": "ayedoit",
+    "password": "ayedoit1234.",
+    "entity": "54cd",
     "API": "https://api.ispapi.net/api/call.cgi"
 }
 
@@ -55,7 +55,7 @@ def ispapiConnect():
     return api
 
 def main():
-    extIP = checkPublicIP()
+    extIP = checkPublicIP().rstrip()
     curIP = "0.0.0.0"
     api = ispapiConnect()
 
@@ -78,15 +78,14 @@ def main():
     for rr in result['PROPERTY']['RR']:
         data = rr.split(' ')
 
-        if data[0] == subdomain:
+        if str(data[0]) == subdomain:
             # Current IP exists
             e = 1
 
             print "Found CN '%s' in DNS Zone '%s'" % (data[0],dnszone)
 
-            curIP = data[4]
-
-            if (curIP != extIP):
+            curIP = data[4].rstrip()
+            if (str(curIP) != str(extIP)):
                 # Delete Current Record
                 response = api.call({
                    'COMMAND': "UpdateDNSZone",
@@ -109,7 +108,7 @@ def main():
         response = api.call({
            'COMMAND': "UpdateDNSZone",
            'DNSZONE' : dnszone,
-           'ADDRR0': data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+extIP,
+           'ADDRR0': subdomain+" 10 IN A "+extIP,
            'INCSERIAL': 1
         })
         result = response.as_hash()
@@ -118,6 +117,5 @@ def main():
             print "Created CN '%s' in DNS Zone '%s': %s => %s" % (data[0],dnszone,curIP,extIP)
         else:
             print "Creation of CN '%s' in DNS Zone '%s' failed: %s" % (data[0],dnszone,result['DESCRIPTION'])
-        print result
 
 main()
