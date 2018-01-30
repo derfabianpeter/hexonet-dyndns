@@ -90,8 +90,8 @@ def main():
                 response = api.call({
                    'COMMAND': "UpdateDNSZone",
                    'DNSZONE' : dnszone,
-                   'DELRR0': data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+curIP,
-                   'ADDRR0': data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+extIP,
+                   'DELRR0': str(data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+curIP),
+                   'ADDRR0': str(data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+extIP),
                    'INCSERIAL': 1
                 })
                 result = response.as_hash()
