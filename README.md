@@ -21,7 +21,7 @@ ISPAPI_USER="HEXONET USER" -e ISPAPI_PASS="HEXONET PASS" -e DDNS_HOSTNAME="home.
 
 ### Docker
 ```
-docker build -t hexonet-dyndns .
+docker build -t hexonet-dyndns github.com/WanTanFao/hexonet-dyndns
 docker run -it --rm --name hexonet-dyndns -e ISPAPI_USER="HEXONET USER" -e ISPAPI_PASS="HEXONET PASS" -e DDNS_HOSTNAME="home.example.com" -e ISPAPI_ENTITY="54cd" hexonet-dyndns
 ```
 

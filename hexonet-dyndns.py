@@ -121,7 +121,6 @@ def main():
             break
 
     if e == 0:
-        print p
         # Your DynDNS Hostname does not yet exist in this zone
         response = api.call({
            'COMMAND': "UpdateDNSZone",
