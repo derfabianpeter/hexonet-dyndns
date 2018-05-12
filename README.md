@@ -42,5 +42,6 @@ DDNS_HOSTNAME="ddns.hexonet.net" ./hexonet-dyndns.py
 ```
 
 ## Remarks
+* The Python SDK for HEXONET's API isn't my work. It can be found here: https://wiki.hexonet.net/wiki/SDKs I just found it easier to just add it here instead of adding more complexity to the script and the installation process. Thanks HEXONET for providing this!
 * You need a Production HEXONET Account and a valid DNS Zone for this to work. You'll get a free DNS Zone with every Domain you buy at HEXONET, but you're also able to just register external DNS Zones and use HEXONET's DNS while your domain is with a different registrar.
 * Don't run this script too often. The API has very generous limits but it also isn't fair to overuse. Once every 4 hours should be sufficient for typical dynamic IP environments.
