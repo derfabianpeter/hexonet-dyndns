@@ -4,10 +4,12 @@ import os
 import sys
 import urllib2
 import logging
+import time
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',level=logging.INFO)
 
 DDNS_HOSTNAME=os.getenv("DDNS_HOSTNAME","")
+SLEEPT_TIMER=14400
 ISPAPI_API=os.getenv("ISPAPI_API","https://api.ispapi.net/api/call.cgi")
 ISPAPI_ENTITY=os.getenv("ISPAPI_ENTITY","1234") # Defaults to 1234 for OT&E
 ISPAPI_USER=os.getenv("ISPAPI_USER","test.user")
@@ -136,4 +138,6 @@ def main():
             logging.warning("Creation of A-Record '%s' in DNS Zone '%s' failed: %s" % (p['subdomain'],p['dnszone'],result['DESCRIPTION']))
 
 if __name__ == "__main__":
-    main()
+    while true:
+        main()
+        time.sleep(SLEEP_TIMER)
