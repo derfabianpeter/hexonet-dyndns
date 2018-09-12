@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import ispapi # https://wiki.hexonet.net/wiki/SDKs#PYTHON_Library
+import ispapi  # https://wiki.hexonet.net/wiki/SDKs#PYTHON_Library
 import os
 import sys
 import urllib2
@@ -9,7 +9,7 @@ import time
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',level=logging.INFO)
 
 DDNS_HOSTNAME=os.getenv("DDNS_HOSTNAME","")
-SLEEPT_TIMER=14400
+SLEEP_TIMER=14400
 ISPAPI_API=os.getenv("ISPAPI_API","https://api.ispapi.net/api/call.cgi")
 ISPAPI_ENTITY=os.getenv("ISPAPI_ENTITY","1234") # Defaults to 1234 for OT&E
 ISPAPI_USER=os.getenv("ISPAPI_USER","test.user")
