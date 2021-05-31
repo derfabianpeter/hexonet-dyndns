@@ -138,6 +138,6 @@ def main():
             logging.warning("Creation of A-Record '%s' in DNS Zone '%s' failed: %s" % (p['subdomain'],p['dnszone'],result['DESCRIPTION']))
 
 if __name__ == "__main__":
-    while true:
+    while True:
         main()
         time.sleep(SLEEP_TIMER)
